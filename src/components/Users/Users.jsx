@@ -5,22 +5,17 @@ import photoUser from "../../assets/image/avatarka.png";
 
 class Users extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        axios
-            .get("https://social-network.samuraijs.com/api/1.0/users")
-            .then((response) => {
-                this.props.setUsers(response.data.items);
-            });
-    }
-
-
+  componentDidMount() {
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((response) => {
+        this.props.setUsers(response.data.items);
+      });
+  }
 
   render() {
     return (
       <div>
-
         {this.props.users.map((u) => (
           <div key={u.id}>
             <span>
@@ -34,7 +29,7 @@ class Users extends React.Component {
                 {u.followed ? (
                   <button
                     onClick={() => {
-                        this.props.unfollow(u.id);
+                      this.props.unfollow(u.id);
                     }}
                   >
                     Unfollow
@@ -42,7 +37,7 @@ class Users extends React.Component {
                 ) : (
                   <button
                     onClick={() => {
-                        this.props.follow(u.id);
+                      this.props.follow(u.id);
                     }}
                   >
                     Follow
