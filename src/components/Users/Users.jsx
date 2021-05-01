@@ -32,6 +32,7 @@ let Users = (props) => {
           <span>
             <div>
               <img
+                 alt=''
                 src={u.photos.small != null ? u.photos.small : photoUser}
                 className={styles.usersPhoto}
               />
